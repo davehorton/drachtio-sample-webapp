@@ -1,0 +1,55 @@
+{
+  "server": {
+    "host": "127.0.0.1",
+    "port": 3000
+  },
+  "routes": {
+    "trunk": [
+      {
+        "tgrp": ["trunk1", "trunk2"],
+        "route": {
+          "action": "proxy",
+          "data": {"destination": "sip:voipprovider.com"}
+        }
+      }
+    ],
+    "source": [
+      {
+        "source": ["185.107.94.10"],
+        "route": {
+          "action": "redirect",
+          "data": {"contacts": ["sip:server1.example.com"]}
+        }
+      }
+    ],
+    "uri": [
+      {
+        "pattern": "^recording-(.*)",
+        "route": {
+          "action": "route",
+          "data": {"uri": "127.0.0.1:3001"}
+        }
+      },
+      {
+        "pattern": "^r-(.*)",
+        "route": {
+          "action": "route",
+          "data": {"uri": "127.0.0.1:3001"}
+        }
+      }
+    ],
+    "did": [
+      {
+        "dids": [
+          "+13234170421","+13238436509","+50321133232",
+          "+442038685051","+17162261638","+13129714122",
+          "+14158902015"
+        ],
+        "route": {
+          "action": "route",
+          "data": {"tag": "conferencing"}
+        }
+      }
+    ]
+  }
+}
