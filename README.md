@@ -4,6 +4,8 @@ A simple [express-based](https://expressjs.com/) web callback for [drachtio](htt
 
 Do not take this application as a normative example.  The structure here, of using a config file to contain routes (vs a database, or something else) and the use of express as http middleware were simply a choice made by the author.  You can implement this however you like, in whatever language or framework you like.
 
+For more details on when and why you might want to use a webapp for routing [see here](https://drachtio.org/docs/drachtio-server#request-handlers-section).
+
 ## Installation
 * copy `config/default.json.example` to `config/local.json`
 * edit as appropriate for your need
